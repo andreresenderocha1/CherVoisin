@@ -10,11 +10,14 @@ var firebaseConfig = {
   measurementId: "G-M89H6JW5LZ",
 };
 
-const app = firebase.initializeApp(firebaseConfig);
+export const app = firebase.initializeApp(firebaseConfig);
 
-const db = firebase.firestore(app);
+export const db = firebase.firestore(app);
+
+export const TIME_STAMP = firebase.database.ServerValue.TIMESTAMP;
 
 export const EventsRef = db.collection("events");
 export const StreetsRef = db.collection("streets");
+export const MessagesRef = db.collection("messages");
 
 export { firebase };

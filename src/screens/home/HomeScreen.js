@@ -5,6 +5,7 @@ import { EventsContext } from "../../services/events/events.context";
 import { eventsRequest } from "../../services/events/events.service";
 import ScannerModal from "../../components/scanner/ScannerModal";
 import { NeighborsScreen } from "../neighbors/NeighborsScreen";
+import { InputNameScreen } from "../chat/InputNameScreen";
 
 export const HomeScreen = () => {
   const eventsContext = React.useContext(EventsContext);
@@ -18,10 +19,11 @@ export const HomeScreen = () => {
 
   return (
     <>
-      <ScannerModal
+      <InputNameScreen></InputNameScreen>
+      {/* <ScannerModal
         showNeighbors={(data) => showNeighborsFunc(data)}
       ></ScannerModal>
-      {showNeighbors ? <NeighborsScreen data={data}></NeighborsScreen> : null}
+      {showNeighbors ? <NeighborsScreen data={data}></NeighborsScreen> : null} */}
     </>
     /*  <SafeAreaView style={{ marginTop: 200 }}>
       <View style={styles.scanner}>

@@ -6,8 +6,11 @@ import { EventsScreen } from "./src/screens/events/EventsScreen";
 import { MoreScreen } from "./src/screens/more/MoreScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createStackNavigator } from "@react-navigation/stack";
 import { Ionicons } from "@expo/vector-icons";
 import { EventsContextProvider } from "./src/services/events/events.context/";
+import { InputNameScreen } from "./src/screens/chat/InputNameScreen";
+import { ChatScreen } from "./src/screens/chat/ChatScreen";
 
 import { theme } from "./infrastructure/theme";
 import { LoginScreen } from "./src/screens/login/LoginScreen";
@@ -16,6 +19,7 @@ const Settings = () => <Text>settings</Text>;
 const Map = () => <Text>map</Text>;
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
 const TAB_ICON = {
   Home: "md-home",
@@ -38,6 +42,12 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <EventsContextProvider>
           <NavigationContainer>
+            <Stack.Navigator>
+              <Stack.Screen name="InputName" component={InputNameScreen} />
+              <Stack.Screen name="Chat" component={ChatScreen} />
+            </Stack.Navigator>
+          </NavigationContainer>
+          {/*  <NavigationContainer>
             <Tab.Navigator
               screenOptions={screenOptions}
               tabBarOptions={{
@@ -49,7 +59,7 @@ export default function App() {
               <Tab.Screen name="Event" component={EventsScreen} />
               <Tab.Screen name="More" component={MoreScreen} />
             </Tab.Navigator>
-          </NavigationContainer>
+          </NavigationContainer> */}
         </EventsContextProvider>
       </ThemeProvider>
     </>
